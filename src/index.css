@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --font-serif: 'Cormorant Garamond', 'Lora', Georgia, serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+
+  /* Byzantine Mosaic & Parchment Palette */
+  --color-mosaic-blue: #243B78;
+  --color-mosaic-dark: #18264F;
+  --color-parchment-warm: #F5F0E5;
+  --color-cream: #FFFCF5;
+  --color-gold: #B79A5B;
+  --color-gold-light: #D9C38B;
+  --color-graphite: #38343A;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFFCF5;
+  color: #38343A;
+  background-image: radial-gradient(rgba(183, 154, 91, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Byzantine Arch Silhouette */
+.byzantine-arch {
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem;
+}
+
+.byzantine-arch-sm {
+  border-top-left-radius: 2.5rem;
+  border-top-right-radius: 2.5rem;
+}
+
+/* Subtle Byzantine Mosaic / Gold Hairline Border */
+.border-gold-subtle {
+  border-color: rgba(183, 154, 91, 0.35);
+}
+
+.bg-parchment-texture {
+  background-color: #F5F0E5;
+  background-image: radial-gradient(rgba(183, 154, 91, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Smooth micro-interactions */
+button, a {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
