@@ -91,7 +91,7 @@ export function ContactSection({ settings }: ContactSectionProps) {
                   <div>
                     <span className="text-xs text-[#B79A5B] font-semibold block uppercase">Пастор церкви</span>
                     <div className="font-bold text-[#18264F]">
-                      {officialInfo.pastorFullName}
+                      {officialInfo?.pastorFullName}
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export function ContactSection({ settings }: ContactSectionProps) {
                   <Youtube className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block font-sans">YouTube</strong>
-                    <span>{socialMedia.youtubeNotice}</span>
+                    <span>{socialMedia?.youtubeNotice}</span>
                   </div>
                 </div>
 
@@ -122,7 +122,7 @@ export function ContactSection({ settings }: ContactSectionProps) {
                   <Instagram className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block font-sans">Instagram</strong>
-                    <span>{socialMedia.instagramNotice}</span>
+                    <span>{socialMedia?.instagramNotice}</span>
                   </div>
                 </div>
 
@@ -130,7 +130,7 @@ export function ContactSection({ settings }: ContactSectionProps) {
                   <Facebook className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block font-sans">Facebook</strong>
-                    <span>{socialMedia.facebookNotice}</span>
+                    <span>{socialMedia?.facebookNotice}</span>
                   </div>
                 </div>
               </div>

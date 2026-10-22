@@ -30,18 +30,18 @@ export function Footer({ settings, onOpenSanityStatus, onNavigate }: FooterProps
                   {settings.churchName}
                 </span>
                 <span className="text-xs text-[#B79A5B] block">
-                  Заснована {officialInfo.foundationDate}
+                  Заснована {officialInfo?.foundationDate}
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-[#F5F0E5]/80 leading-relaxed font-sans max-w-md">
-              {officialInfo.legalName}
+              {officialInfo?.legalName}
             </p>
 
             <div className="pt-2 text-xs text-[#B79A5B] space-y-1">
-              <div>Пастор: <strong>{officialInfo.pastorFullName}</strong></div>
-              <div>Місто: <strong>{officialInfo.city}</strong></div>
+              <div>Пастор: <strong>{officialInfo?.pastorFullName}</strong></div>
+              <div>Місто: <strong>{officialInfo?.city}</strong></div>
             </div>
           </div>
 

@@ -30,7 +30,15 @@ export const SITE_SETTINGS_GROQ = `*[_type == "siteSettings"][0]{
   scheduleSummary,
   socialMedia,
   bankDetails,
-  googleMaps
+  googleMaps,
+  serviceSchedule,
+  directions,
+  mapUrl,
+  phone,
+  email,
+  socialLinks,
+  donationText,
+  donationDetails
 }`;
 
 export const HOME_PAGE_GROQ = `*[_type == "homePage"][0]{
@@ -112,9 +120,48 @@ export async function fetchCompleteChurchData(): Promise<ChurchFullData> {
       rawData.siteSettings?.churchName || rawData.homePage?.heroTitle
     );
 
-    const siteSettings: SiteSettings = rawData.siteSettings?.churchName
-      ? { ...DEMO_SITE_SETTINGS, ...rawData.siteSettings }
-      : DEMO_SITE_SETTINGS;
+   const rawSettings = rawData.siteSettings as
+  | (Partial<SiteSettings> & {
+      address?: string | SiteSettings['address'];
+      mapUrl?: string;
+      phone?: string;
+      email?: string;
+    })
+  | null
+  | undefined;
+
+const siteSettings: SiteSettings = rawSettings?.churchName
+  ? {
+      ...DEMO_SITE_SETTINGS,
+      ...rawSettings,
+      officialInfo: {
+        ...DEMO_SITE_SETTINGS.officialInfo,
+        ...(rawSettings.officialInfo ?? {}),
+      },
+      address: {
+        ...DEMO_SITE_SETTINGS.address,
+        ...(typeof rawSettings.address === 'object' && rawSettings.address
+          ? rawSettings.address
+          : {}),
+        ...(typeof rawSettings.address === 'string' && rawSettings.address
+          ? { street: rawSettings.address }
+          : {}),
+      },
+      contacts: {
+        ...DEMO_SITE_SETTINGS.contacts,
+        ...(rawSettings.contacts ?? {}),
+        ...(rawSettings.phone ? { phone: rawSettings.phone } : {}),
+        ...(rawSettings.email ? { email: rawSettings.email } : {}),
+      },
+      googleMaps: {
+        ...DEMO_SITE_SETTINGS.googleMaps,
+        ...(rawSettings.googleMaps ?? {}),
+        ...(rawSettings.mapUrl
+          ? { directLink: rawSettings.mapUrl }
+          : {}),
+      },
+    }
+  : DEMO_SITE_SETTINGS;
 
     const homePage: HomePageData = rawData.homePage?.heroTitle
       ? { ...DEMO_HOME_PAGE, ...rawData.homePage }

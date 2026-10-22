@@ -10,9 +10,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ homePage, settings, onNavigate }: HeroSectionProps) {
   const heroImageSrc =
-    urlFor(homePage.heroImage)?.width(1600).quality(85).url() ||
-    homePage.localHeroImagePath ||
-    '/src/assets/images/byzantine_church_arch_sanctuary_1792663602688.jpg';
+  '/src/assets/images/mainhall.webp';
 
   return (
     <section id="hero" className="relative overflow-hidden py-12 lg:py-20 bg-[#FFFCF5]">

@@ -76,7 +76,7 @@ export function DonationsSection({ settings }: DonationsSectionProps) {
               </div>
 
               <p className="text-sm text-[#38343A] leading-relaxed">
-                {bankDetails.qrNotice}
+                {bankDetails?.qrNotice}
               </p>
 
               {/* Reserved QR Code Area with Byzantine Aesthetic Framing */}

@@ -60,7 +60,7 @@ export function MapAndLocationSection({ settings }: MapAndLocationSectionProps) 
                   <div>
                     <span className="text-xs text-[#B79A5B] font-semibold block uppercase">День зібрання</span>
                     <div className="text-base font-bold text-[#18264F]">
-                      {scheduleSummary.day}
+                      {scheduleSummary?.day ?? 'Щосуботи'}
                     </div>
                   </div>
                 </div>
@@ -74,14 +74,14 @@ export function MapAndLocationSection({ settings }: MapAndLocationSectionProps) 
                     <div className="text-base font-bold text-[#18264F]">
                       з 14:00 до 17:00
                     </div>
-                    <p className="text-xs text-[#38343A]/80 mt-0.5">Тривалість: {scheduleSummary.duration}</p>
+                    <p className="text-xs text-[#38343A]/80 mt-0.5">Тривалість: {scheduleSummary?.duration ?? '3 години'}</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-2">
                 <a
-                  href={googleMaps.directLink}
+                  href={googleMaps?.directLink ?? 'https://www.google.com/maps/search/?api=1&query=вул.+Вадима+Гетьмана+1А+Київ'}
                   target="_blank"
                   rel="noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 text-xs font-semibold text-[#FFFCF5] bg-[#243B78] hover:bg-[#18264F] rounded-xl border border-[#B79A5B]/50 shadow-xs transition-colors"
@@ -108,10 +108,10 @@ export function MapAndLocationSection({ settings }: MapAndLocationSectionProps) 
           {/* Right Column: Google Maps Frame */}
           <div className="lg:col-span-7">
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#B79A5B]/50 shadow-lg bg-[#F5F0E5] aspect-16/10 sm:aspect-16/9">
-              {googleMaps.embedUrl ? (
+              {googleMaps?.embedUrl ? (
                 <iframe
                   title="Карта проїзду до церкви Святого апостола Варнави"
-                  src={googleMaps.embedUrl}
+                  src={googleMaps?.embedUrl}
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -128,7 +128,7 @@ export function MapAndLocationSection({ settings }: MapAndLocationSectionProps) 
                     </p>
                   </div>
                   <a
-                    href={googleMaps.directLink}
+                    href={googleMaps?.directLink ?? 'https://www.google.com/maps/search/?api=1&query=вул.+Вадима+Гетьмана+1А+Київ'}
                     target="_blank"
                     rel="noreferrer"
                     className="px-5 py-2.5 text-xs font-semibold bg-[#243B78] text-[#FFFCF5] rounded-xl inline-flex items-center gap-1.5"
